@@ -1,9 +1,17 @@
 function calculate() {
     let a =parseInt(document.getElementById("Number").value);
+    if (localStorage.getItem("clicks")) {
+        const value = Number(localStorage.clicks) + 1
+        localStorage.setItem("clicks", value)
+        } else {
+        localStorage.clicks = 1
+        } 
+         
+        
     localStorage.setItem("number", a)
     localStorage.getItem("number")
     let total=calculatepeople(a);
-    document.getElementById("result").innerHTML ="People per course:" +total;
+    document.getElementById("result").innerHTML ="People per course:" +total+".The  button has been clicked for "+localStorage.clicks+"times"
   }
   function calculatepeople(n){
     return n+2;
